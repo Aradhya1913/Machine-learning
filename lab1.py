@@ -8,7 +8,6 @@ warnings.filterwarnings('ignore')
 # Load and prepare data
 df = pd.read_csv("housing.csv")
 df['total_bedrooms'] = df['total_bedrooms'].fillna(df['total_bedrooms'].median())
-df.iloc[:,2:7] = df.iloc[:,2:7].astype(int)
 
 # Data overview
 print(f"Dataset Shape: {df.shape}\n")
@@ -18,6 +17,7 @@ print("\nDuplicates:", df.duplicated().sum())
 
 Numerical = df.select_dtypes(include=[np.number]).columns
 print(Numerical)
+
 for col in Numerical:
     plt.figure(figsize=(10,6))
     df[col].plot(kind= 'hist', title =col, bins = 60, edgecolor='black')
