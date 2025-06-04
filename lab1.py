@@ -22,6 +22,7 @@ for col in Numerical:
     plt.figure(figsize=(10,6))
     df[col].plot(kind= 'hist', title =col, bins = 60, edgecolor='black')
     plt.show()
+
 for col in Numerical:
     plt.figure(figsize=(6,6))
     sns.boxplot(df[col],color='red')
